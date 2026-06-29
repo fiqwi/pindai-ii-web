@@ -1,0 +1,107 @@
+:root {
+  --bg:        #0d1117;
+  --bg2:       #161b22;
+  --bg3:       #1c2230;
+  --bg4:       #21262d;
+  --border:    rgba(255,255,255,0.08);
+  --border2:   rgba(255,255,255,0.14);
+  --text:      #e6edf3;
+  --text2:     #8b949e;
+  --text3:     #484f58;
+  --green:     #3fb950;
+  --green-bg:  rgba(63,185,80,0.12);
+  --blue:      #58a6ff;
+  --blue-bg:   rgba(88,166,255,0.12);
+  --amber:     #f0883e;
+  --amber-bg:  rgba(240,136,62,0.12);
+  --red:       #f85149;
+  --red-bg:    rgba(248,81,73,0.12);
+  --purple:    #bc8cff;
+  --purple-bg: rgba(188,140,255,0.12);
+  --accent:    #1f6feb;
+  --font:      'Inter', system-ui, sans-serif;
+  --mono:      'JetBrains Mono', monospace;
+  --r:         6px;
+  --r2:        10px;
+  --r3:        14px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14px; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+.t1 { font-size: 20px; font-weight: 600; letter-spacing: -.3px; }
+.t2 { font-size: 15px; font-weight: 500; }
+.t3 { font-size: 13px; font-weight: 500; }
+.t4 { font-size: 11px; color: var(--text2); }
+.mono { font-family: var(--mono); }
+
+.pill { font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 10px; white-space: nowrap; display: inline-block; }
+.pill-green  { background: var(--green-bg); color: var(--green); }
+.pill-blue   { background: var(--blue-bg);  color: var(--blue); }
+.pill-amber  { background: var(--amber-bg); color: var(--amber); }
+.pill-red    { background: var(--red-bg);   color: var(--red); }
+.pill-purple { background: var(--purple-bg);color: var(--purple); }
+.pill-dim    { background: var(--bg3); color: var(--text3); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 12px; border-radius: var(--r);
+  font-size: 11px; font-weight: 500; font-family: var(--font);
+  border: 1px solid var(--border2);
+  background: transparent; color: var(--text2);
+  cursor: pointer; transition: all .15s; white-space: nowrap;
+}
+.btn:hover { background: var(--bg3); color: var(--text); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary:hover { background: #1a5fc7; }
+
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--r3);
+  overflow: hidden;
+}
+.card-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.card-title { font-size: 12px; font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 7px; }
+.card-title i { font-size: 15px; color: var(--text2); }
+.card-body { padding: 14px 16px; }
+
+.metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 16px; }
+.metric-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--r2); padding: 14px 16px;
+}
+.metric-label { font-size: 11px; color: var(--text2); margin-bottom: 6px; display: flex; align-items: center; gap: 5px; }
+.metric-value { font-size: 26px; font-weight: 600; color: var(--text); line-height: 1; }
+.metric-sub { font-size: 10px; color: var(--text3); margin-top: 4px; }
+.metric-sub.up     { color: var(--green); }
+.metric-sub.warn   { color: var(--amber); }
+.metric-sub.danger { color: var(--red); }
+
+.two-col   { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.gap-col   { display: flex; flex-direction: column; gap: 14px; }
+
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+@keyframes td { 0%,80%,100%{opacity:.3;transform:scale(.8)} 40%{opacity:1;transform:scale(1)} }
+
+.typing-dots { display: flex; gap: 3px; }
+.typing-dots span {
+  width: 5px; height: 5px; border-radius: 50%; background: var(--text3);
+  animation: td 1.2s ease-in-out infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: .2s; }
+.typing-dots span:nth-child(3) { animation-delay: .4s; }
