@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: ghcr.io/pindaiai/pindai-ii-web:latest
+          image: ghcr.io/fiqwi/pindai-ii-web:latest
           ports:
             - containerPort: 80
           resources:
